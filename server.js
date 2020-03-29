@@ -14,20 +14,33 @@ const config = {
                 },
                 label: 'Анализ весов',
                 groups: {
+                    group0: {
+                        label: null,
+                        fields: {
+                            name1: {label: "Тело", unit: "гр", value: ""},
+                            name2: {label: "Мозг", unit: "гр", value: ""},
+                            name3: {label: "Тимус", unit: "гр", value: ""},
+                            name4: {label: "Печень", unit: "гр", value: ""},
+                            name5: {label: "Селезенка", unit: "гр", value: ""},
+                            name6: {label: "Надпочечники", unit: "гр", value: ""},
+                            name7: {label: "Поджелудочная железа", unit: "гр", value: ""},
+                            name8: {label: "Почки", unit: "гр", value: ""}
+                        }
+                    },
                     group1: {
                         label: 'Легкие',
                         fields: {
-                            field1: {label: 'label field', value: '', unit: 'гр'},
-                            field2: {label: 'label2 field', value: '', unit: 'гр'},
-                            field3: {label: 'label3 field', value: '', unit: 'гр'}
+                            name9: {label: "Левое", unit: "гр", value: ""},
+                            name10: {label: "Правое", unit: "гр", value: ""}
                         }
                     },
                     group2: {
                         label: 'Сердце',
                         fields: {
-                            field4: {label: 'label field', value: '', unit: 'sm'},
-                            field5: {label: 'label2 field', value: '', unit: 'sm'},
-                            field6: {label: 'label3 field', value: '', unit: 'sm'}
+                            name11: {label: "Левое предсердие", unit: "гр", value: ""},
+                            name12: {label: "Левый желудочек", unit: "гр", value: ""},
+                            name13: {label: "Правое предсердие", unit: "гр", value: ""},
+                            name14: {label: "Правый желудочек", unit: "гр", value: ""}
                         }
                     }
                 }
@@ -44,13 +57,22 @@ const config = {
                 label: 'Анализ длин',
                 groups: {
                     group1: {
-                        label: '',
+                        label: null,
                         fields: {
-                            field7: {label: 'label field', value: '', unit: 'гр'},
-                            field8: {label: 'label2 field', value: '', unit: 'гр'},
-                            field9: {label: 'label3 field', value: '', unit: 'гр'},
-                            field10: {label: 'label2 field4', value: '', unit: 'гр'},
-                            field11: {label: 'label3 field5', value: '', unit: 'гр'}
+                            name15: {label: "CHL", unit: "мм", value: ""},
+                            name16: {label: "CRL", unit: "мм", value: ""},
+                            name17: {label: "HC", unit: "мм", value: ""},
+                            name18: {label: "BPD", unit: "мм", value: ""},
+                            name19: {label: "OCD", unit: "мм", value: ""},
+                            name20: {label: "ICD", unit: "мм", value: ""},
+                            name21: {label: "PL", unit: "мм", value: ""},
+                            name22: {label: "CC", unit: "мм", value: ""},
+                            name23: {label: "IND", unit: "мм", value: ""},
+                            name24: {label: "AC", unit: "мм", value: ""},
+                            name25: {label: "HL(левый)", unit: "мм", value: ""},
+                            name26: {label: "HL(правый)", unit: "мм", value: ""},
+                            name27: {label: "FL (левый)", unit: "мм", value: ""},
+                            name28: {label: "FL (левый)", unit: "мм", value: ""}
                         }
                     }
                 }
@@ -67,16 +89,20 @@ const config = {
                 label: 'Радиографический анализ',
                 groups: {
                     group1: {
-                        label: '',
+                        label: null,
                         fields: {
-                            field12: {label: 'label field', value: '', unit: 'гр'},
-                            field13: {label: 'label2 field', value: '', unit: 'гр'},
-                            field14: {label: 'label3 field', value: '', unit: 'гр'},
-                            field15: {label: 'label2 field4', value: '', unit: 'гр'},
-                            field16: {label: 'label3 field5', value: '', unit: 'гр'},
-                            field17: {label: 'label3 field', value: '', unit: 'гр'},
-                            field18: {label: 'label2 field4', value: '', unit: 'гр'},
-                            field19: {label: 'label3 field5', value: '', unit: 'гр'}
+                            name29: {label: "Humerus (левая)", unit: "мм", value: ""},
+                            name30: {label: "Humerus (правая)", unit: "мм", value: ""},
+                            name31: {label: "Ulna (левая)", unit: "мм", value: ""},
+                            name32: {label: "Ulna (правая)", unit: "мм", value: ""},
+                            name33: {label: "Radius (левая)", unit: "мм", value: ""},
+                            name34: {label: "Radius (правая)", unit: "мм", value: ""},
+                            name35: {label: "Femur (левая)", unit: "мм", value: ""},
+                            name36: {label: "Femur (правая)", unit: "мм", value: ""},
+                            name37: {label: "Tibia (левая)", unit: "мм", value: ""},
+                            name38: {label: "Tibia (правая)", unit: "мм", value: ""},
+                            name39: {label: "Fibula (левая)", unit: "мм", value: ""},
+                            name40: {label: "Fibula (правая)", unit: "мм", value: ""}
                         }
                     }
                 }
@@ -93,11 +119,10 @@ const config = {
                 label: 'G-I анализ',
                 groups: {
                     group1: {
-                        label: '',
+                        label: null,
                         fields: {
-                            field20: {label: 'label field', value: '2399', unit: 'гр'},
-                            field21: {label: 'label2 field', value: '', unit: 'гр'},
-                            field22: {label: 'label3 field', value: '', unit: 'гр'}
+                            name41: {label: "Тонский кишечник", unit: "см", value: ""},
+                            name42: {label: "Толстый кишечник", unit: "см", value: ""}
                         }
                     }
                 }
@@ -110,19 +135,18 @@ const config = {
                 label: 'Послед',
                 groups: {
                     group1: {
-                        label: '',
+                        label: null,
                         fields: {
-                            field23: {label: 'label field', value: '', unit: 'гр'},
-                            field24: {label: 'label2 field', value: '', unit: 'гр'},
-                            field25: {label: 'label3 field', value: '', unit: 'гр'}
+                            name43: {label: "Пуповина", unit: "см", value: ""},
+                            name44: {label: "Вес плаценты", unit: "гр", value: ""}
                         }
                     },
                     group2: {
                         label: 'Размер плаценты',
                         fields: {
-                            field26: {label: 'label field', value: '', unit: 'sm'},
-                            field27: {label: 'label2 field', value: '', unit: 'sm'},
-                            field28: {label: 'label3 field', value: '', unit: 'sm'}
+                            name45: {label: "Диаметр 1", unit: "см", value: ""},
+                            name46: {label: "Диаметр 2", unit: "см", value: ""},
+                            name47: {label: "Толщина", unit: "см", value: ""}
                         }
                     }
                 }
