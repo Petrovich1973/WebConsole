@@ -4,14 +4,14 @@ import {sendData} from '../actions'
 
 const ScreenResult = (props) => {
     const {state, dispatch} = props
-    const {result: {result = 0, message = ''} = {}} = state
+    const {form, result: {result = 0, message = ''} = {}} = state
 
     useEffect(() => {
         getResult()
     }, [])
 
     const getResult = () => {
-        dispatch(sendData())
+        dispatch(sendData(form))
     }
 
     return (
