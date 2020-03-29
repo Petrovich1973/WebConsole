@@ -3,14 +3,16 @@ import {connect} from 'react-redux'
 import * as types from './actionTypes'
 import {getConfig} from './actions'
 import './App.less'
+import Loader from "./components/Loader"
 import Column from "./components/Column"
 import Modal from "./components/Modal"
 import Menu from "./components/Menu"
 import ScreenSettings from "./components/screenSettings"
+import ScreenResult from "./components/ScreenResult"
 
 const App = (props) => {
     const {state, dispatch} = props
-    const {form, screenSettings} = state
+    const {spinner, form, screenSettings, result} = state
 
     const [menu, setMenu] = useState(false)
     const [clientY, setClientY] = useState(20)
@@ -63,6 +65,15 @@ const App = (props) => {
         })
     }
 
+    const onToggleResult = () => {
+        dispatch({
+            type: types.APP_UPDATE,
+            payload: {
+                result: null
+            }
+        })
+    }
+
     return (
         <div className="App">
             {listFormKeys.length ? listFormKeys
@@ -78,13 +89,24 @@ const App = (props) => {
             {screenSettings.visible ? (
                 <Modal
                     style={{width: 900}}
-                    title="Settings"
+                    title="Edit config"
                     onClose={onToggleSettings}>
                     <ScreenSettings/>
                 </Modal>
             ) : null}
 
+            {result ? (
+                <Modal
+                    style={{width: 900}}
+                    title="Result"
+                    onClose={onToggleResult}>
+                    <ScreenResult/>
+                </Modal>
+            ) : null}
+
             {menu ? <Menu/> : null}
+            {spinner ? <Loader/> : null}
+
         </div>
     )
 }

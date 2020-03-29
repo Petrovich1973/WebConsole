@@ -127,7 +127,7 @@ const initialize = {
         //     }
         // }
     },
-    result: {},
+    result: null,
     spinner: false,
     listExpand: [],
     screenSettings: {

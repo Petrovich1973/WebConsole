@@ -1,10 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import * as types from '../actionTypes'
+import {sendData} from '../actions'
 
 const Menu = (props) => {
     const {state, dispatch} = props
-    const {screenSettings} = state
+    const {form, screenSettings} = state
 
 
     const onClickItem = payload => {
@@ -16,15 +17,14 @@ const Menu = (props) => {
 
     return (
         <div className="menu">
-            <div className="panel">
-                <span className="item" onClick={() => onClickItem({
-                        screenSettings: {
-                            ...screenSettings,
-                            visible: !screenSettings.visible
-                        }
+            <span className="item" onClick={() => onClickItem({
+                    screenSettings: {
+                        ...screenSettings,
+                        visible: !screenSettings.visible
                     }
-                )}>Settings</span>
-            </div>
+                }
+            )}>Edit config</span>
+            <span className="item" onClick={() => dispatch(sendData({...form}))}>Send data</span>
         </div>
     )
 }

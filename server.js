@@ -145,7 +145,7 @@ app.post('/api/config', (req, res) => {
 })
 
 app.post('/api/data', (req, res) => {
-    res.send({result: 0, message: 'message'})
+    res.send({result: 0, message: 'Результат обработки данных...'})
 })
 
 app.listen(5000, () => console.log('Listening on port 5000! http://localhost:5000'))

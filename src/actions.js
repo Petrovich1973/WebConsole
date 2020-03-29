@@ -2,7 +2,7 @@ import axios from "axios"
 import * as types from './actionTypes'
 
 const config = {
-    url: 'http://localhost:5000/api/config'
+    url: 'http://localhost:5000/api'
 }
 
 export function getReducer() {
@@ -22,7 +22,7 @@ export function getConfig() {
             }
         })
 
-        axios.get(`${config.url}`)
+        axios.get(`${config.url}/config`)
             .then(response => {
                 dispatch({
                     type: types.APP_UPDATE, payload: {
@@ -50,7 +50,7 @@ export function setConfig(params) {
             }
         })
 
-        axios.post(`${config.url}`, {...params})
+        axios.post(`${config.url}/config`, {...params})
             .then(response => {
                 dispatch({
                     type: types.APP_UPDATE, payload: {
@@ -78,7 +78,7 @@ export function sendData(params) {
             }
         })
 
-        axios.post(`${config.url}`, {...params})
+        axios.post(`${config.url}/data`, {...params})
             .then((response) => {
                 dispatch({
                     type: types.APP_UPDATE, payload: {
