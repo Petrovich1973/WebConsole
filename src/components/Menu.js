@@ -7,13 +7,24 @@ const Menu = (props) => {
     const {modals} = state
 
 
-    const onClickItem = name => {
+    const onClickItem = async name => {
 
         let newModals = {...modals}
 
         Object.keys(modals).forEach(item => (
             newModals[item] = null
         ))
+
+        if(modals[name]) {
+            await dispatch({
+                type: types.APP_UPDATE,
+                payload: {
+                    modals: {
+                        ...newModals
+                    }
+                }
+            })
+        }
 
         dispatch({
             type: types.APP_UPDATE,
