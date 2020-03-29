@@ -129,7 +129,10 @@ const initialize = {
     },
     result: {},
     spinner: false,
-    listExpand: []
+    listExpand: [],
+    screenSettings: {
+        visible: false
+    }
 }
 
 export default function (state = initialize, action) {
