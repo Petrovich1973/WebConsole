@@ -127,12 +127,13 @@ const initialize = {
         //     }
         // }
     },
-    result: null,
+    modals: {
+        config: null,
+        result: null,
+    },
+    result: {},
     spinner: false,
-    listExpand: [],
-    screenSettings: {
-        visible: false
-    }
+    listExpand: []
 }
 
 export default function (state = initialize, action) {

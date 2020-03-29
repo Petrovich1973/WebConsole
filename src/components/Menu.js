@@ -1,30 +1,36 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import * as types from '../actionTypes'
-import {sendData} from '../actions'
 
 const Menu = (props) => {
     const {state, dispatch} = props
-    const {form, screenSettings} = state
+    const {modals} = state
 
 
-    const onClickItem = payload => {
+    const onClickItem = name => {
+
+        let newModals = {...modals}
+
+        Object.keys(modals).forEach(item => (
+            newModals[item] = null
+        ))
+
         dispatch({
             type: types.APP_UPDATE,
-            payload
+            payload: {
+                modals: {
+                    ...newModals,
+                    [name]: true
+                }
+            }
         })
     }
 
     return (
         <div className="menu">
-            <span className="item" onClick={() => onClickItem({
-                    screenSettings: {
-                        ...screenSettings,
-                        visible: !screenSettings.visible
-                    }
-                }
-            )}>Edit config</span>
-            <span className="item" onClick={() => dispatch(sendData({...form}))}>Send data</span>
+            {Object.keys(modals).map((key, idx) => (
+                <span key={idx} className="item" onClick={() => onClickItem(key)}>{key}</span>
+            ))}
         </div>
     )
 }

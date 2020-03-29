@@ -141,7 +141,9 @@ app.get('/api/config', (req, res) => {
 })
 
 app.post('/api/config', (req, res) => {
-    res.send({...req.body})
+    // res.send({...req.body})
+    // Эмуляция задержки респонса
+    setTimeout(() => res.send({...req.body}), 1000)
 })
 
 app.post('/api/data', (req, res) => {

@@ -12,9 +12,10 @@ import ScreenResult from "./components/ScreenResult"
 
 const App = (props) => {
     const {state, dispatch} = props
-    const {spinner, form, screenSettings, result} = state
+    const {spinner, form, modals} = state
+    const {config, result} = modals
 
-    const [menu, setMenu] = useState(false)
+    const [menuVisible, setMenu] = useState(false)
     const [clientY, setClientY] = useState(20)
 
     const listFormKeys = Object.keys(form)
@@ -29,7 +30,7 @@ const App = (props) => {
         return () => {
             Root.removeEventListener('mousemove', handleMouseMove, false)
         }
-    }, [menu, clientY])
+    }, [menuVisible, clientY])
 
     const handleMouseMove = event => {
         if (event.clientY < clientY) {
@@ -53,23 +54,14 @@ const App = (props) => {
         })
     }
 
-    const onToggleSettings = () => {
+    const oncloseModal = name => {
         dispatch({
             type: types.APP_UPDATE,
             payload: {
-                screenSettings: {
-                    ...screenSettings,
-                    visible: !screenSettings.visible
+                modals: {
+                    ...modals,
+                    [name]: null
                 }
-            }
-        })
-    }
-
-    const onToggleResult = () => {
-        dispatch({
-            type: types.APP_UPDATE,
-            payload: {
-                result: null
             }
         })
     }
@@ -86,11 +78,11 @@ const App = (props) => {
                         onChangeField={handleChangeField}/>
                 )) : <h1 className="align-center">Ожидание ответа с сервера...</h1>}
 
-            {screenSettings.visible ? (
+            {config ? (
                 <Modal
                     style={{width: 900}}
                     title="Edit config"
-                    onClose={onToggleSettings}>
+                    onClose={() => oncloseModal('config')}>
                     <ScreenSettings/>
                 </Modal>
             ) : null}
@@ -99,12 +91,12 @@ const App = (props) => {
                 <Modal
                     style={{width: 900}}
                     title="Result"
-                    onClose={onToggleResult}>
+                    onClose={() => oncloseModal('result')}>
                     <ScreenResult/>
                 </Modal>
             ) : null}
 
-            {menu ? <Menu/> : null}
+            {menuVisible ? <Menu/> : null}
             {spinner ? <Loader/> : null}
 
         </div>
