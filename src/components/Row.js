@@ -2,7 +2,7 @@ import React from 'react'
 
 const Row = (props) => {
     const {name, row, onChangeField = Function} = props
-    const {label, value, unit} = row
+    const {label = '', value = '', unit = ''} = row
 
     const handleChange = e => {
         onChangeField({

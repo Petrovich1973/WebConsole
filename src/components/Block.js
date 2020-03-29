@@ -5,7 +5,7 @@ import Group from "./Group"
 
 const Block = (props) => {
     const {state, name, block, onChangeField = Function, dispatch} = props
-    const {label, style, groups} = block
+    const {label, style, groups = {}} = block
 
     const {listExpand} = state
 

@@ -3,7 +3,7 @@ import Block from "./Block"
 
 const Column = (props) => {
     const {name, column, onChangeField = Function} = props
-    const {blocks} = column
+    const {blocks = {}} = column
 
     const handleChange = block => {
         onChangeField({

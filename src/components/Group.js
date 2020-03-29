@@ -3,7 +3,7 @@ import Row from "./Row"
 
 const Group = (props) => {
     const {name, group, onChangeField = Function} = props
-    const {label, fields} = group
+    const {label, fields = {}} = group
 
     const handleChange = row => {
         onChangeField({

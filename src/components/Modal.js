@@ -11,8 +11,8 @@ const Modal = ({children, style = {}, title = 'Dialog window', footer = null, on
                         <span>&#10005;</span>
                     </button>
                 </div>
-                <div className="content">{children}</div>
-                <div className="footer">{footer}</div>
+                {children}
+                {footer ? <div className="footer">{footer}</div> : null}
             </div>
         </div>
     )

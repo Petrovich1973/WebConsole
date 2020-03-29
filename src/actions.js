@@ -41,6 +41,34 @@ export function getConfig() {
     }
 }
 
+export function setConfig(params) {
+    return function (dispatch) {
+
+        dispatch({
+            type: types.APP_UPDATE, payload: {
+                spinner: true
+            }
+        })
+
+        axios.post(`${config.url}`, {...params})
+            .then(response => {
+                dispatch({
+                    type: types.APP_UPDATE, payload: {
+                        form: response.data,
+                        spinner: false
+                    }
+                })
+            })
+            .catch(err => {
+                dispatch({
+                    type: types.APP_UPDATE, payload: {
+                        error: err
+                    }
+                })
+            })
+    }
+}
+
 export function sendData(params) {
     return function (dispatch) {
 
