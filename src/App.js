@@ -80,6 +80,7 @@ const App = (props) => {
 
             {config ? (
                 <Modal
+                    className="warning"
                     style={{width: 900}}
                     title="Edit config"
                     onClose={() => oncloseModal('config')}>
@@ -89,6 +90,7 @@ const App = (props) => {
 
             {result ? (
                 <Modal
+                    className="success"
                     style={{width: 900}}
                     title="Result"
                     onClose={() => oncloseModal('result')}>

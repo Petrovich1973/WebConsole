@@ -169,7 +169,8 @@
       display: flex;
       flex-direction: column;
       .header {
-        background: aliceblue;
+        background: #000;
+        color: white;
         flex-shrink: 0;
         display: flex;
         justify-content: space-between;
@@ -177,7 +178,6 @@
         h4 {
           margin: 0;
           flex: 1;
-          font-weight: 300;
           text-transform: uppercase;
           line-height: 1;
           padding: 1rem;
@@ -191,6 +191,8 @@
           border: none;
           padding: 1rem;
           background-color: transparent;
+          color: inherit;
+          outline: none;
           &:hover span {
             display: block;
             position: relative;
@@ -205,11 +207,21 @@
         overflow: auto;
       }
       .footer {
-        background: aliceblue;
+        background: white;
         flex-shrink: 0;
+        border-top: 1px solid #a0b6ca;
       }
     }
   }
+}
+
+.success {
+  background: #00751c !important;
+  color: white !important;;
+}
+.warning {
+  background: #e0c804 !important;;
+  color: black !important;;
 }
 
 .align-center {
