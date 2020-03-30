@@ -121,7 +121,7 @@ const config = {
                     group1: {
                         label: null,
                         fields: {
-                            name41: {label: "Тонский кишечник", unit: "см", value: ""},
+                            name41: {label: "Тонкий кишечник", unit: "см", value: ""},
                             name42: {label: "Толстый кишечник", unit: "см", value: ""}
                         }
                     }

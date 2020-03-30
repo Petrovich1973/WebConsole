@@ -104,7 +104,7 @@ const App = (props) => {
                 <Modal
                     className="warning"
                     style={{width: 900}}
-                    title="Edit config"
+                    title="Edit config json"
                     onClose={() => oncloseModal('config')}>
                     <ScreenSettings/>
                 </Modal>
