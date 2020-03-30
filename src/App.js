@@ -12,8 +12,8 @@ import ScreenResult from "./components/ScreenResult"
 
 const App = (props) => {
     const {state, dispatch} = props
-    const {spinner, form, modals, listErrors} = state
-    const {config, result} = modals
+    const {spinner, form, modals, listErrors, result} = state
+    const {config} = modals
 
     const [menuVisible, setMenu] = useState(false)
     const [clientY, setClientY] = useState(20)
@@ -70,6 +70,15 @@ const App = (props) => {
         })
     }
 
+    const oncloseResult = () => {
+        dispatch({
+            type: types.APP_UPDATE,
+            payload: {
+                result: {}
+            }
+        })
+    }
+
     const oncloseError = time => {
         dispatch({
             type: types.APP_UPDATE,
@@ -101,12 +110,12 @@ const App = (props) => {
                 </Modal>
             ) : null}
 
-            {result ? (
+            {'result' in result ? (
                 <Modal
                     className="success"
                     style={{width: 900}}
                     title="Result"
-                    onClose={() => oncloseModal('result')}>
+                    onClose={oncloseResult}>
                     <ScreenResult/>
                 </Modal>
             ) : null}

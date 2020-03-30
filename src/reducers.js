@@ -128,8 +128,7 @@ const initialize = {
         // }
     },
     modals: {
-        config: null,
-        result: null,
+        config: null
     },
     result: {},
     spinner: false,
