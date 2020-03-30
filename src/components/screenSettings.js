@@ -1,10 +1,11 @@
 import React, {useState, useEffect, useRef} from 'react'
 import {connect} from 'react-redux'
 import {setConfig} from '../actions'
+import * as types from '../actionTypes'
 
 const ScreenSettings = (props) => {
     const {state, dispatch} = props
-    const {form} = state
+    const {form, modals} = state
     const [textarea, setTextarea] = useState('')
     const textArea = useRef(null)
 
@@ -12,11 +13,20 @@ const ScreenSettings = (props) => {
         setTextarea(JSON.stringify({...form}))
         setTimeout(() => autoGrow(), 0)
         window.addEventListener('resize', resetGrow, false)
+        window.addEventListener('keyup', handleEsc, false)
         return () => {
             window.removeEventListener('resize', resetGrow, false)
+            window.removeEventListener('keyup', handleEsc, false)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    const handleEsc = e => {
+        e.preventDefault()
+        if (e.keyCode === 27) {
+            dispatch({type: types.APP_UPDATE, payload: {modals: {...modals, config: false}}})
+        }
+    }
 
     const handleChange = e => {
         setTextarea(e.target.value)
