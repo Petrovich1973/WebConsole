@@ -166,7 +166,6 @@ app.get('/api/config', (req, res) => {
 
 app.post('/api/config', (req, res) => {
     try {
-        throw new Error('Уупс!')
         // res.send({...req.body})
         // Эмуляция задержки респонса
         setTimeout(() => res.send({...req.body}), 1000)
