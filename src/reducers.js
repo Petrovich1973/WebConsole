@@ -133,7 +133,8 @@ const initialize = {
     },
     result: {},
     spinner: false,
-    listExpand: []
+    listExpand: [],
+    listErrors: []
 }
 
 export default function (state = initialize, action) {

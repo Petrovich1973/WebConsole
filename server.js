@@ -165,9 +165,15 @@ app.get('/api/config', (req, res) => {
 })
 
 app.post('/api/config', (req, res) => {
-    // res.send({...req.body})
-    // Эмуляция задержки респонса
-    setTimeout(() => res.send({...req.body}), 1000)
+    try {
+        throw new Error('Уупс!')
+        // res.send({...req.body})
+        // Эмуляция задержки респонса
+        setTimeout(() => res.send({...req.body}), 1000)
+    } catch (err) {
+        res.status(400).send(err)
+    }
+
 })
 
 app.post('/api/data', (req, res) => {

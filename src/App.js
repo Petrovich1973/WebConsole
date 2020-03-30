@@ -12,7 +12,7 @@ import ScreenResult from "./components/ScreenResult"
 
 const App = (props) => {
     const {state, dispatch} = props
-    const {spinner, form, modals} = state
+    const {spinner, form, modals, listErrors} = state
     const {config, result} = modals
 
     const [menuVisible, setMenu] = useState(false)
@@ -66,6 +66,15 @@ const App = (props) => {
         })
     }
 
+    const oncloseError = time => {
+        dispatch({
+            type: types.APP_UPDATE,
+            payload: {
+                listErrors: listErrors.filter(err => err.time !== time)
+            }
+        })
+    }
+
     return (
         <div className="App">
             {listFormKeys.length ? listFormKeys
@@ -99,6 +108,30 @@ const App = (props) => {
             ) : null}
 
             {menuVisible ? <Menu/> : null}
+
+            {listErrors.map((err, idx) => {
+                const {time, error} = err
+                const {config = {}, response = {}} = {...error}
+                const {method = null, url = null} = {...config}
+                const {status = null, statusText = null} = {...response}
+
+                return (
+                    <Modal
+                        key={idx}
+                        className="danger"
+                        style={{width: 600}}
+                        title={status}
+                        onClose={() => oncloseError(time)}>
+                        <div className="content" style={{padding: '1rem'}}>
+                            <small>method: {method}</small><br/>
+                            <small>url: {url}</small><br/>
+                            <small>status: {status}</small><br/>
+                            <small>statusText: {statusText}</small>
+                        </div>
+                    </Modal>
+                )
+            })}
+
             {spinner ? <Loader/> : null}
 
         </div>

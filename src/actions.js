@@ -13,6 +13,20 @@ export function getReducer() {
     }
 }
 
+export function handleError(err) {
+    return function (dispatch, getStore) {
+
+        const store = getStore()
+
+        dispatch({
+            type: types.APP_UPDATE, payload: {
+                spinner: false,
+                listErrors: [...store.listErrors, {time: Date.now(), error: err}]
+            }
+        })
+    }
+}
+
 export function getConfig() {
     return function (dispatch) {
 
@@ -32,11 +46,7 @@ export function getConfig() {
                 })
             })
             .catch(err => {
-                dispatch({
-                    type: types.APP_UPDATE, payload: {
-                        error: err
-                    }
-                })
+                dispatch(handleError(err))
             })
     }
 }
@@ -60,11 +70,7 @@ export function setConfig(params) {
                 })
             })
             .catch(err => {
-                dispatch({
-                    type: types.APP_UPDATE, payload: {
-                        error: err
-                    }
-                })
+                dispatch(handleError(err))
             })
     }
 }
@@ -88,11 +94,7 @@ export function sendData(params) {
                 })
             })
             .catch((err) => {
-                dispatch({
-                    type: types.APP_UPDATE, payload: {
-                        error: err
-                    }
-                })
+                dispatch(handleError(err))
             })
     }
 }
