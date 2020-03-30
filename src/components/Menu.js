@@ -60,6 +60,7 @@ const Menu = (props) => {
             {Object.keys(modals).map((key, idx) => (
                 <span key={idx} className="item" onClick={() => onClickItem(key)}>{key}</span>
             ))}
+            <span className="item" style={{cursor: 'default'}}>Console</span>
             <span className="item" onClick={onClickPredict}>predict</span>
         </div>
     )

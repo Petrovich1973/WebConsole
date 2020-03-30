@@ -1,4 +1,4 @@
-# WebConsole
+# WebConsole Predict
 Установить Node.js (если не установлен) - https://nodejs.org/ru/<br />
 Скачать зависимости - 
 ### `npm install`

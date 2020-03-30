@@ -114,7 +114,7 @@ const App = (props) => {
                 <Modal
                     className="success"
                     style={{width: 900}}
-                    title="Result"
+                    title="Predict"
                     onClose={oncloseResult}>
                     <ScreenResult/>
                 </Modal>
