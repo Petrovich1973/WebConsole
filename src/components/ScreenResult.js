@@ -12,10 +12,12 @@ const ScreenResult = (props) => {
 
     useEffect(() => {
         getResult()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
         if (ready) send(dataReq)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ready])
 
     const getResult = async () => {
@@ -23,9 +25,7 @@ const ScreenResult = (props) => {
         setReady(true)
     }
 
-    const send = async () => {
-        dispatch(sendData(dataReq))
-    }
+    const send = () => dispatch(sendData(dataReq))
 
     const getData = async data => {
         function req(d) {

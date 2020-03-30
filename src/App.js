@@ -21,7 +21,8 @@ const App = (props) => {
     const listFormKeys = Object.keys(form)
 
     useEffect(() => {
-        dispatch(getConfig())
+        fetchConfig()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
@@ -30,7 +31,10 @@ const App = (props) => {
         return () => {
             Root.removeEventListener('mousemove', handleMouseMove, false)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [menuVisible, clientY])
+
+    const fetchConfig = () => dispatch(getConfig())
 
     const handleMouseMove = event => {
         if (event.clientY < clientY) {
